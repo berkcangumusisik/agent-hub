@@ -1,0 +1,23 @@
+name: Propose a new specialist
+description: Suggest a new agent role for the super-team
+labels: [new-agent]
+body:
+  - type: input
+    id: role
+    attributes:
+      label: Role name
+      placeholder: e.g. data-engineer
+    validations:
+      required: true
+  - type: textarea
+    id: responsibility
+    attributes:
+      label: What is this specialist responsible for?
+      description: One clear responsibility. How does it differ from existing roles?
+    validations:
+      required: true
+  - type: dropdown
+    id: model
+    attributes:
+      label: Suggested model
+      options: [opus, sonnet, haiku, inherit]

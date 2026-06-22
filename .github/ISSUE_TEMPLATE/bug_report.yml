@@ -1,0 +1,30 @@
+name: Bug report
+description: Something in the super-team or tooling isn't working as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. /onboard in project X
+        2. Ask the team to ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Which agent / command?
+      placeholder: e.g. tech-lead, /onboard
+  - type: input
+    id: version
+    attributes:
+      label: Claude Code version

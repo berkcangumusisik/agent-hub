@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" role="img" aria-label="agent-hub — one AI engineering team, in every repo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#818cf8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#c084fc" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="340" rx="20" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1278" height="338" rx="19" fill="none" stroke="#30363d" stroke-width="1"/>
+
+  <!-- node cluster on the right -->
+  <g opacity="0.9">
+    <circle cx="1040" cy="170" r="34" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
+    <circle cx="1040" cy="170" r="6" fill="#818cf8"/>
+    <g stroke="#30363d" stroke-width="2">
+      <line x1="1040" y1="170" x2="940" y2="90"/>
+      <line x1="1040" y1="170" x2="940" y2="250"/>
+      <line x1="1040" y1="170" x2="1160" y2="100"/>
+      <line x1="1040" y1="170" x2="1160" y2="240"/>
+      <line x1="1040" y1="170" x2="1000" y2="290"/>
+    </g>
+    <circle cx="940"  cy="90"  r="14" fill="#0d1117" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="940"  cy="250" r="14" fill="#0d1117" stroke="#818cf8" stroke-width="2"/>
+    <circle cx="1160" cy="100" r="14" fill="#0d1117" stroke="#c084fc" stroke-width="2"/>
+    <circle cx="1160" cy="240" r="14" fill="#0d1117" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="1000" cy="290" r="11" fill="#0d1117" stroke="#818cf8" stroke-width="2"/>
+  </g>
+
+  <text x="80" y="150" font-family="ui-sans-serif,-apple-system,Segoe UI,Roboto,sans-serif" font-size="88" font-weight="800" fill="url(#accent)">agent-hub</text>
+  <rect x="84" y="178" width="360" height="3" rx="1.5" fill="url(#line)"/>
+  <text x="82" y="222" font-family="ui-sans-serif,-apple-system,Segoe UI,Roboto,sans-serif" font-size="30" font-weight="600" fill="#e6edf3">One AI engineering team. Every repo. Auto-specialized.</text>
+  <text x="82" y="262" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="19" fill="#8b949e">A project-aware multi-agent super-team for Claude Code</text>
+</svg>

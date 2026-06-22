@@ -1,0 +1,12 @@
+{
+  "name": "super-team",
+  "version": "0.1.0",
+  "description": "A project-aware full-stack specialist team. Every agent reads the project's .claude/agent-hub/profile.yml before acting, so the same team behaves differently per project.",
+  "author": {
+    "name": "Berkcan Gümüşışık",
+    "url": "https://github.com/berkcangumusisik"
+  },
+  "homepage": "https://github.com/berkcangumusisik/agent-hub",
+  "license": "MIT",
+  "keywords": ["agents", "multi-agent", "orchestration", "team", "profile"]
+}

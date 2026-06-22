@@ -1,0 +1,13 @@
+# Claude Code local settings (machine-specific, not for the repo)
+.claude/settings.local.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Node (only if tooling is added later)
+node_modules/
+npm-debug.log*

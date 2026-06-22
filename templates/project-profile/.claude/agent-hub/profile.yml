@@ -1,0 +1,37 @@
+# agent-hub project profile
+# Every super-team agent reads this file before acting.
+# Fill it once per project; leave unknowns as "".
+
+project:
+  name: ""                 # e.g. my-service
+  type: ""                 # backend | frontend | mobile | fullstack | library
+  description: ""
+
+stack:
+  language: ""             # e.g. TypeScript, Java, Python, Dart
+  runtime: ""              # e.g. Node 20, JDK 21, Python 3.12
+  framework: ""            # e.g. NestJS, Spring Boot, Next.js, Flutter
+  database: ""             # e.g. PostgreSQL, MongoDB
+  packageManager: ""       # npm | pnpm | yarn | maven | gradle | pip | poetry
+
+commands:
+  install: ""              # e.g. pnpm install
+  dev: ""                  # e.g. pnpm dev
+  test: ""                 # e.g. pnpm test
+  lint: ""                 # e.g. pnpm lint
+  build: ""                # e.g. pnpm build
+
+team:
+  # Specialists active for this project. Remove ones you don't need.
+  active:
+    - tech-lead
+    - architect
+    - backend-engineer
+    - code-reviewer
+    - qa-tester
+
+conventions:
+  - ""                     # e.g. Use repository pattern for data access
+
+doNot:
+  - ""                     # e.g. Never call the DB directly from controllers

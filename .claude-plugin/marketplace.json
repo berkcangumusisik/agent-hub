@@ -1,0 +1,18 @@
+{
+  "name": "agent-hub",
+  "owner": {
+    "name": "Berkcan Gümüşışık",
+    "url": "https://github.com/berkcangumusisik"
+  },
+  "metadata": {
+    "description": "Project-aware multi-agent super team for Claude Code. One specialist team that adapts to every project via a per-project profile.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "super-team",
+      "source": "./plugins/super-team",
+      "description": "A full-stack specialist agent team (tech-lead, architect, backend, frontend, mobile, devops, reviewer, QA, security, docs) that adapts to each project through a declarative profile."
+    }
+  ]
+}
