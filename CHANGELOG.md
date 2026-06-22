@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-06-22
+
+### Added
+- `data-engineer` specialist (pipelines, ETL, schema/warehouse modeling, migrations).
+- `ux-designer` specialist (user flows, IA, interaction & accessibility specs).
+- `handoff` skill and `/handoff` command to summarize session state for the next session.
+- Release and stars badges in the README.
+
 ## [0.1.0] — 2026-06-22
 
 ### Added
@@ -18,5 +26,6 @@ All notable changes to this project are documented here. The format is based on
 - Project profile template in `templates/project-profile/`.
 - Zero-dependency validation script and CI workflow.
 
-[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/berkcangumusisik/agent-hub/releases/tag/v0.1.0

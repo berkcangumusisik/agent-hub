@@ -15,6 +15,8 @@ Before anything else, read `.claude/agent-hub/profile.yml` and the project `CLAU
 - **frontend-engineer** — web UI, state, accessibility, performance
 - **mobile-engineer** — native/cross-platform mobile
 - **devops-engineer** — CI/CD, infra, containers, observability
+- **data-engineer** — pipelines, ETL, schema/warehouse modeling, migrations
+- **ux-designer** — user flows, IA, interaction & accessibility specs
 - **code-reviewer** — correctness, bugs, maintainability review
 - **qa-tester** — test plans, test code, edge cases
 - **security-reviewer** — vulnerabilities, authz/authn, secrets

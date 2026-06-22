@@ -9,6 +9,8 @@ Install once — then every project gets a full-stack team that adapts to *that*
 stack, commands, and conventions.
 
 [![validate](https://github.com/berkcangumusisik/agent-hub/actions/workflows/validate.yml/badge.svg)](https://github.com/berkcangumusisik/agent-hub/actions/workflows/validate.yml)
+[![release](https://img.shields.io/github/v/release/berkcangumusisik/agent-hub?color=22d3ee&label=release)](https://github.com/berkcangumusisik/agent-hub/releases)
+[![stars](https://img.shields.io/github/stars/berkcangumusisik/agent-hub?style=flat&color=818cf8)](https://github.com/berkcangumusisik/agent-hub/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22d3ee.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-818cf8.svg)](https://code.claude.com/docs/en/plugins)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-c084fc.svg)](CONTRIBUTING.md)
@@ -73,6 +75,7 @@ values, fix anything wrong, and you're done. From then on, just describe what yo
 
 ```bash
 /team         # show the roster and who's active for this project
+/handoff      # summarize where we are for the next session
 ```
 
 ## 🧠 How it works
@@ -100,6 +103,8 @@ you open it there, switching projects switches the team's behavior — automatic
 | `frontend-engineer` | Web UI, state, accessibility, performance | `sonnet` |
 | `mobile-engineer` | Native / cross-platform mobile | `sonnet` |
 | `devops-engineer` | CI/CD, infra, containers, observability | `sonnet` |
+| `data-engineer` | Pipelines, ETL, schema/warehouse modeling, migrations | `sonnet` |
+| `ux-designer` | User flows, IA, interaction & accessibility specs | `opus` |
 | `code-reviewer` | Correctness, bugs, maintainability review | `sonnet` |
 | `qa-tester` | Test plans and test code | `haiku` |
 | `security-reviewer` | Vulnerabilities, authz/authn, secrets (defensive) | `opus` |
@@ -142,9 +147,9 @@ agent-hub/
 ├── .claude-plugin/marketplace.json     # marketplace manifest
 ├── plugins/super-team/                 # the plugin
 │   ├── .claude-plugin/plugin.json
-│   ├── agents/                         # the 10 specialists
-│   ├── skills/                         # agent-hub-init, load-profile
-│   └── commands/                       # /onboard, /team
+│   ├── agents/                         # the 12 specialists
+│   ├── skills/                         # agent-hub-init, load-profile, handoff
+│   └── commands/                       # /onboard, /team, /handoff
 ├── templates/project-profile/          # per-project .claude/ starter
 └── scripts/validate.mjs                # zero-dep CI validation
 ```
@@ -182,9 +187,9 @@ Dart, Go… if Claude Code can read it, the team can work in it.
 
 ## 🛣 Roadmap
 
+- [x] `/handoff` command to summarize state for the next session
+- [x] `data-engineer` and `ux-designer` specialists
 - [ ] Starter templates for more stacks (Spring Boot, Django, Go, Expo)
-- [ ] `/handoff` command to summarize state for the next session
-- [ ] Optional `data-engineer` and `ux-designer` specialists
 - [ ] Profile linting in `/onboard`
 
 Have an idea? [Open an issue](https://github.com/berkcangumusisik/agent-hub/issues) or a PR.
