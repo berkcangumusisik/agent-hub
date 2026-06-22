@@ -40,6 +40,16 @@ auto-loads it when you open the project — so specialization is automatic.
    └─ code-review  signs off
 ```
 
+## 🎬 See it
+
+<div align="center">
+
+![agent-hub demo](docs/demo.svg)
+
+*`/onboard` detects the stack, then `tech-lead` routes the work to the right specialists.*
+
+</div>
+
 ## 🚀 Install
 
 ```bash
