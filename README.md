@@ -98,7 +98,9 @@ One source of truth in [`adapters/`](adapters/) generates each harness's file.
 
 <div align="center">
 
-![agent-hub demo](docs/demo.svg)
+![agent-hub demo — install, onboard, and the team routing work](docs/demo.gif)
+
+*One line installs the team; `onboard` detects your stack; `tech-lead` routes the work.*
 
 </div>
 

@@ -6,6 +6,11 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+### Added
+- **Terminal recording** — `docs/demo.cast` (asciinema) and `docs/demo.gif`, embedded in the
+  README "See it" section.
+- `AGENT_HUB_BASE` env override in the installers, for installing from a fork or local checkout.
+
 ## [0.5.0] — 2026-06-26
 
 ### Changed

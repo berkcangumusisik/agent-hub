@@ -5,7 +5,7 @@
 #
 # Harnesses: claude codex opencode cursor gemini windsurf all
 $ErrorActionPreference = "Stop"
-$Base = "https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main"
+$Base = if ($env:AGENT_HUB_BASE) { $env:AGENT_HUB_BASE } else { "https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main" }
 $Harness = if ($env:HARNESS) { $env:HARNESS } elseif ($args.Count -gt 0) { $args[0] } else { "all" }
 
 function Dl($path, $dest) {

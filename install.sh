@@ -9,7 +9,9 @@
 # Harnesses: claude · codex · opencode · cursor · gemini · windsurf · all
 set -eu
 
-BASE="https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main"
+# Source of the files. Override AGENT_HUB_BASE to install from a fork or a local checkout
+# (e.g. AGENT_HUB_BASE="file:///path/to/agent-hub").
+BASE="${AGENT_HUB_BASE:-https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main}"
 HARNESS="${1:-all}"
 
 c_cyan='\033[36m'; c_grn='\033[32m'; c_dim='\033[2m'; c_b='\033[1m'; c_0='\033[0m'
