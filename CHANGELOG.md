@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+### Changed
+- **Site & brand redesign** — refined dark/premium theme: single soft-indigo accent (no
+  rainbow gradients, orbs, or grain), clean 1px-border cards, monogram harness logos, white
+  primary buttons. Brand SVGs (banner, architecture, demo) recolored to match.
+
+### Added
+- Starter profiles for **Rails, .NET, Laravel, FastAPI, SvelteKit** (now 11 stacks).
+- `onboard` now detects Ruby/PHP/.NET projects.
+
 ## [0.4.0] — 2026-06-26
 
 ### Added

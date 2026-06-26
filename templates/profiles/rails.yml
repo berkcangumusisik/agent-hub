@@ -1,0 +1,26 @@
+# Starter profile: Ruby on Rails backend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-api
+  type: backend
+  description: ""
+stack:
+  language: Ruby
+  runtime: Ruby 3.3
+  framework: Ruby on Rails
+  database: PostgreSQL
+  packageManager: bundler
+commands:
+  install: bundle install
+  dev: bin/rails server
+  test: bin/rails test
+  lint: bundle exec rubocop
+  build: bin/rails assets:precompile
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Fat models, skinny controllers; service objects for complex flows
+  - Use strong params and migrations for every schema change
+doNot:
+  - Never skip mass-assignment protection
+  - Never commit secrets (use credentials/ENV)

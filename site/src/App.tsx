@@ -61,7 +61,7 @@ function CtaBand() {
     <section ref={ref} className={`reveal ${inView ? "in" : ""} border-t border-white/5 py-16 sm:py-24`}>
       <div className={WRAP}>
         <div className="gcard relative overflow-hidden p-8 text-center sm:p-16">
-          <div className="orb" style={{ width: 420, height: 320, top: -120, left: "50%", marginLeft: -210, background: "radial-gradient(circle, #818cf8, transparent 60%)", opacity: 0.4 }} />
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(40rem 18rem at 50% -4rem, rgba(138,180,255,0.08), transparent 70%)" }} />
           <div className="relative">
             <h2 className="text-2xl font-extrabold tracking-tight sm:text-5xl">{t("cta.title")}</h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-mut sm:text-lg">{t("cta.lead")}</p>
@@ -98,13 +98,9 @@ export default function App() {
       {/* hero */}
       <header className="relative overflow-hidden pb-20 pt-24 text-center sm:pb-28 sm:pt-32">
         <div className="grid-bg absolute inset-0" />
-        <div className="orb" style={{ width: 420, height: 420, top: -110, left: "8%", background: "radial-gradient(circle, #22d3ee, transparent 60%)", animation: "float 9s ease-in-out infinite" }} />
-        <div className="orb" style={{ width: 480, height: 480, top: -80, right: "6%", background: "radial-gradient(circle, #818cf8, transparent 60%)", animation: "floatX 12s ease-in-out infinite" }} />
-        <div className="orb" style={{ width: 340, height: 340, bottom: -140, left: "44%", background: "radial-gradient(circle, #c084fc, transparent 60%)", animation: "float 14s ease-in-out infinite" }} />
-
         <div className="relative mx-auto max-w-4xl px-6">
           <span className="pill mb-7">
-            <span style={{ width: 7, height: 7, borderRadius: 99, background: "#22d3ee", animation: "pulseDot 2s ease-in-out infinite" }} />
+            <span style={{ width: 6, height: 6, borderRadius: 99, background: "#8ab4ff" }} />
             {t("hero.badge")}
           </span>
           <h1 className="text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-7xl sm:leading-[1.05]">
@@ -136,7 +132,7 @@ export default function App() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {harnesses.map((h) => (
             <div key={h.id} className="gcard flex items-center gap-4 p-5">
-              <span className="icon-chip shrink-0">{h.icon}</span>
+              <span className="mono-chip shrink-0">{h.code}</span>
               <span className="min-w-0">
                 <b className="block text-base">{h.name}</b>
                 <span className="text-sm text-mut">{t("harness.installs")} <code className="font-mono text-txt">{h.file}</code></span>

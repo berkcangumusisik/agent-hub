@@ -1,0 +1,26 @@
+# Starter profile: SvelteKit web frontend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: web-app
+  type: frontend
+  description: ""
+stack:
+  language: TypeScript
+  runtime: Node 20
+  framework: SvelteKit
+  database: ""
+  packageManager: pnpm
+commands:
+  install: pnpm install
+  dev: pnpm dev
+  test: pnpm test
+  lint: pnpm lint
+  build: pnpm build
+team:
+  active: [tech-lead, architect, frontend-engineer, ux-designer, code-reviewer, qa-tester]
+conventions:
+  - Use load functions for data; keep components focused
+  - Reuse the design system and stores; mind accessibility
+doNot:
+  - Never put secrets in client-loaded code
+  - Never ship unlabeled interactive elements

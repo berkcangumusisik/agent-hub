@@ -1,0 +1,26 @@
+# Starter profile: ASP.NET Core (C#) backend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-api
+  type: backend
+  description: ""
+stack:
+  language: C#
+  runtime: .NET 8
+  framework: ASP.NET Core
+  database: PostgreSQL (EF Core)
+  packageManager: nuget
+commands:
+  install: dotnet restore
+  dev: dotnet run
+  test: dotnet test
+  lint: dotnet format --verify-no-changes
+  build: dotnet build -c Release
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Use DI and the options pattern; keep controllers thin
+  - Map entities to DTOs; never expose EF entities directly
+doNot:
+  - Never block on async (no .Result / .Wait())
+  - Never log secrets or connection strings

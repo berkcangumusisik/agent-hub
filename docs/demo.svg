@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="780" height="470" viewBox="0 0 780 470" role="img" aria-label="agent-hub demo: running /onboard on the repo-seatbelt project">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#11161d"/>
+      <stop offset="0" stop-color="#0a0b0f"/><stop offset="1" stop-color="#0e0f14"/>
     </linearGradient>
   </defs>
   <style>
     text { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:15px; }
-    .p   { fill:#22d3ee; }   /* prompt */
-    .c   { fill:#e6edf3; }   /* command / white */
-    .m   { fill:#8b949e; }   /* muted */
-    .g   { fill:#3fb950; }   /* success */
-    .v   { fill:#818cf8; }   /* accent */
+    .p   { fill:#8ab4ff; }   /* prompt */
+    .c   { fill:#f2f2f7; }   /* command / white */
+    .m   { fill:#9aa0ad; }   /* muted */
+    .g   { fill:#5ed68a; }   /* success */
+    .v   { fill:#8ab4ff; }   /* accent */
     .y   { fill:#d29922; }   /* spinner */
     .ln  { opacity:0; }
     @keyframes r1  {0%,1%{opacity:0} 3%,94%{opacity:1} 98%,100%{opacity:0}}
@@ -36,9 +36,9 @@
   </style>
 
   <!-- window -->
-  <rect width="780" height="470" rx="14" fill="url(#bg)" stroke="#30363d"/>
-  <rect width="780" height="40" rx="14" fill="#161b22"/>
-  <rect y="26" width="780" height="14" fill="#161b22"/>
+  <rect width="780" height="470" rx="14" fill="url(#bg)" stroke="#1d1f26"/>
+  <rect width="780" height="40" rx="14" fill="#101218"/>
+  <rect y="26" width="780" height="14" fill="#101218"/>
   <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
   <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
   <circle cx="68" cy="20" r="6" fill="#27c93f"/>
@@ -60,6 +60,6 @@
     <text x="40" y="372" class="ln l11"><tspan class="m">├─ </tspan><tspan class="v">qa-tester</tspan><tspan class="m">       tests for --json output</tspan></text>
     <text x="40" y="400" class="ln l12"><tspan class="m">└─ </tspan><tspan class="v">code-reviewer</tspan><tspan class="g">   ✓ </tspan><tspan class="c">looks good — shipped</tspan></text>
 
-    <g class="cursor"><rect x="22" y="430" width="9" height="17" fill="#22d3ee"/></g>
+    <g class="cursor"><rect x="22" y="430" width="9" height="17" fill="#8ab4ff"/></g>
   </g>
 </svg>

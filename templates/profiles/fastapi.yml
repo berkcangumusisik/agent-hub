@@ -1,0 +1,26 @@
+# Starter profile: FastAPI (Python) backend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-api
+  type: backend
+  description: ""
+stack:
+  language: Python
+  runtime: Python 3.12
+  framework: FastAPI
+  database: PostgreSQL (SQLAlchemy)
+  packageManager: uv
+commands:
+  install: uv sync
+  dev: uv run uvicorn app.main:app --reload
+  test: uv run pytest
+  lint: uv run ruff check .
+  build: uv build
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Pydantic models for all request/response schemas
+  - Dependency injection for db sessions and auth
+doNot:
+  - Never do blocking I/O in async routes
+  - Never return ORM models directly — use schemas

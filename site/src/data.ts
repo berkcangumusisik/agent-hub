@@ -28,14 +28,14 @@ export const roster: Role[] = [
 
 export const allSpecialists = roster.map((r) => r.name);
 
-export type Harness = { id: string; name: string; icon: string; file: string; arg: string };
+export type Harness = { id: string; name: string; code: string; file: string; arg: string };
 export const harnesses: Harness[] = [
-  { id: "claude", name: "Claude Code", icon: "🤖", file: "plugin + CLAUDE.md", arg: "claude" },
-  { id: "codex", name: "Codex", icon: "⌘", file: "AGENTS.md", arg: "codex" },
-  { id: "cursor", name: "Cursor", icon: "▟", file: ".cursor/rules", arg: "cursor" },
-  { id: "opencode", name: "OpenCode", icon: "◍", file: "AGENTS.md", arg: "opencode" },
-  { id: "gemini", name: "Gemini CLI", icon: "✦", file: "GEMINI.md", arg: "gemini" },
-  { id: "windsurf", name: "Windsurf", icon: "🏄", file: ".windsurfrules", arg: "windsurf" },
+  { id: "claude", name: "Claude Code", code: "CC", file: "plugin + CLAUDE.md", arg: "claude" },
+  { id: "codex", name: "Codex", code: "Cx", file: "AGENTS.md", arg: "codex" },
+  { id: "cursor", name: "Cursor", code: "Cu", file: ".cursor/rules", arg: "cursor" },
+  { id: "opencode", name: "OpenCode", code: "OC", file: "AGENTS.md", arg: "opencode" },
+  { id: "gemini", name: "Gemini CLI", code: "Gm", file: "GEMINI.md", arg: "gemini" },
+  { id: "windsurf", name: "Windsurf", code: "Ws", file: ".windsurfrules", arg: "windsurf" },
 ];
 
 export const commands = ["onboard", "team", "review", "decide", "handoff"];

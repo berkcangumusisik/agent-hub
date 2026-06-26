@@ -1,0 +1,26 @@
+# Starter profile: Laravel (PHP) backend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-api
+  type: backend
+  description: ""
+stack:
+  language: PHP
+  runtime: PHP 8.3
+  framework: Laravel
+  database: MySQL
+  packageManager: composer
+commands:
+  install: composer install
+  dev: php artisan serve
+  test: php artisan test
+  lint: ./vendor/bin/pint --test
+  build: php artisan optimize
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Use form requests for validation; keep controllers thin
+  - Eloquent relationships over manual joins; migrations for schema
+doNot:
+  - Never expose models directly — use API resources
+  - Never commit .env

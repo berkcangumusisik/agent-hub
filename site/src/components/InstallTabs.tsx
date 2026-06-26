@@ -2,7 +2,7 @@ import { useState } from "react";
 import { harnesses, INSTALL_BASE } from "../data";
 import { useI18n } from "../i18n";
 
-const tabs = [{ id: "all", name: "All", arg: "", icon: "✸" }, ...harnesses];
+const tabs = [{ id: "all", name: "All", arg: "", code: "✸" }, ...harnesses];
 
 export default function InstallTabs() {
   const { t } = useI18n();
@@ -32,7 +32,7 @@ export default function InstallTabs() {
             onClick={() => setSel(x.id)}
             className={`rounded-full border px-3.5 py-1.5 text-sm transition ${sel === x.id ? "border-violet bg-violet/10 text-txt" : "border-edge text-mut hover:border-violet/60 hover:text-txt"}`}
           >
-            <span className="mr-1.5">{x.icon}</span>{x.name}
+            <span className="mr-1.5 font-mono text-xs text-acc">{x.code}</span>{x.name}
           </button>
         ))}
       </div>

@@ -15,6 +15,7 @@ Create a project profile so the super-team specializes to this codebase.
    - `pyproject.toml` / `requirements.txt` → Python (Django/FastAPI/Flask)
    - `pubspec.yaml` → Flutter/Dart; `app.json`/`expo` → React Native (Expo)
    - `go.mod` → Go; `Cargo.toml` → Rust
+   - `Gemfile` → Ruby/Rails; `composer.json` → PHP/Laravel; `*.csproj` → C#/.NET
    - `Dockerfile`, `.github/workflows/`, CI config → devops target
    - existing `README.md` for run/test/build commands
 
