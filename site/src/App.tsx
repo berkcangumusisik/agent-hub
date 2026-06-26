@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { REPO, asset, featureList, roster } from "./data";
+import { REPO, asset, featureList, roster, harnesses, commands, INSTALL_BASE } from "./data";
 import { useI18n, type Lang } from "./i18n";
 import { useReveal } from "./useReveal";
 import ProfileGenerator from "./components/ProfileGenerator";
+import InstallTabs from "./components/InstallTabs";
 
 const WRAP = "mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16";
 
@@ -21,7 +22,7 @@ function Copyable({ text }: { text: string }) {
             setTimeout(() => setCopied(false), 1500);
           });
         }}
-        className="rounded-lg border border-edge px-2.5 py-1 text-xs text-mut transition hover:border-violet hover:text-txt"
+        className="ml-auto shrink-0 rounded-lg border border-edge px-2.5 py-1 text-xs text-mut transition hover:border-violet hover:text-txt"
       >
         {copied ? t("copied") : t("copy")}
       </button>
@@ -46,11 +47,7 @@ function Section({ id, eyebrow, title, lead, children }: { id: string; eyebrow?:
 function LangSwitch() {
   const { lang, setLang } = useI18n();
   const opt = (l: Lang) => (
-    <button
-      key={l}
-      onClick={() => setLang(l)}
-      className={`rounded-md px-2 py-0.5 text-xs font-semibold transition ${lang === l ? "bg-violet/15 text-txt" : "text-mut hover:text-txt"}`}
-    >
+    <button key={l} onClick={() => setLang(l)} className={`rounded-md px-2 py-0.5 text-xs font-semibold transition ${lang === l ? "bg-violet/15 text-txt" : "text-mut hover:text-txt"}`}>
       {l.toUpperCase()}
     </button>
   );
@@ -61,7 +58,7 @@ function CtaBand() {
   const { t } = useI18n();
   const { ref, inView } = useReveal<HTMLElement>();
   return (
-    <section ref={ref} className={`reveal ${inView ? "in" : ""} border-t border-white/5 py-24`}>
+    <section ref={ref} className={`reveal ${inView ? "in" : ""} border-t border-white/5 py-16 sm:py-24`}>
       <div className={WRAP}>
         <div className="gcard relative overflow-hidden p-8 text-center sm:p-16">
           <div className="orb" style={{ width: 420, height: 320, top: -120, left: "50%", marginLeft: -210, background: "radial-gradient(circle, #818cf8, transparent 60%)", opacity: 0.4 }} />
@@ -88,9 +85,9 @@ export default function App() {
         <div className={`${WRAP} flex h-16 items-center justify-between`}>
           <span className="font-display text-xl font-bold gradient-text">agent-hub</span>
           <div className="flex items-center gap-4 text-sm text-mut">
+            <a href="#harnesses" className="hidden hover:text-txt md:inline">{t("kicker.harness")}</a>
             <a href="#how" className="hidden hover:text-txt md:inline">{t("nav.how")}</a>
             <a href="#features" className="hidden hover:text-txt md:inline">{t("nav.features")}</a>
-            <a href="#generator" className="hidden hover:text-txt md:inline">{t("nav.generator")}</a>
             <a href="#install" className="hidden hover:text-txt md:inline">{t("nav.install")}</a>
             <LangSwitch />
             <a className="btn py-1.5" href={REPO} target="_blank" rel="noopener">★ GitHub</a>
@@ -121,10 +118,10 @@ export default function App() {
             <a className="btn btn-ghost" href={REPO} target="_blank" rel="noopener">{t("hero.viewGithub")}</a>
           </div>
           <div className="mx-auto mt-10 w-full max-w-2xl">
-            <Copyable text="curl -fsSL https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.sh | sh" />
+            <Copyable text={INSTALL_BASE} />
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-6 sm:mt-14 sm:gap-12">
-            {[["12", t("stat.specialists")], ["5", t("stat.commands")], ["MIT", t("stat.oss")]].map(([n, l]) => (
+            {[["12", t("stat.specialists")], [String(harnesses.length), t("kicker.harness")], ["MIT", t("stat.oss")]].map(([n, l]) => (
               <div key={l} className="text-center">
                 <div className="gradient-text font-display text-3xl font-bold sm:text-4xl">{n}</div>
                 <div className="mt-1 text-xs uppercase tracking-wide text-mut">{l}</div>
@@ -133,6 +130,21 @@ export default function App() {
           </div>
         </div>
       </header>
+
+      {/* harnesses */}
+      <Section id="harnesses" eyebrow={t("kicker.harness")} title={t("harness.title")} lead={t("harness.lead")}>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {harnesses.map((h) => (
+            <div key={h.id} className="gcard flex items-center gap-4 p-5">
+              <span className="icon-chip shrink-0">{h.icon}</span>
+              <span className="min-w-0">
+                <b className="block text-base">{h.name}</b>
+                <span className="text-sm text-mut">{t("harness.installs")} <code className="font-mono text-txt">{h.file}</code></span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* see it */}
       <Section id="see" eyebrow={t("kicker.see")} title={t("see.title")} lead={t("see.lead")}>
@@ -148,7 +160,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* features — bento */}
+      {/* features */}
       <Section id="features" eyebrow={t("kicker.features")} title={t("features.title")} lead={t("features.lead")}>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featureList.map((f, i) => (
@@ -161,9 +173,16 @@ export default function App() {
         </div>
       </Section>
 
-      {/* generator */}
-      <Section id="generator" eyebrow={t("kicker.gen")} title={t("gen.title")} lead={t("gen.lead")}>
-        <ProfileGenerator />
+      {/* commands */}
+      <Section id="commands" eyebrow={t("kicker.cmd")} title={t("cmd.title")} lead={t("cmd.lead")}>
+        <div className="mx-auto grid max-w-3xl gap-3">
+          {commands.map((c) => (
+            <div key={c} className="flex items-center gap-4 rounded-xl border border-edge bg-card/50 px-5 py-4 transition hover:border-violet/60">
+              <code className="shrink-0 rounded-lg border border-edge bg-ink px-3 py-1 font-mono text-sm text-violet">/{c}</code>
+              <span className="text-sm text-mut">{t(`cmd.${c}`)}</span>
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* roster */}
@@ -184,14 +203,14 @@ export default function App() {
         </div>
       </Section>
 
+      {/* generator */}
+      <Section id="generator" eyebrow={t("kicker.gen")} title={t("gen.title")} lead={t("gen.lead")}>
+        <ProfileGenerator />
+      </Section>
+
       {/* install */}
       <Section id="install" title={t("install.title")} lead={t("install.lead")}>
-        <div className="mx-auto grid max-w-2xl gap-3">
-          <Copyable text="curl -fsSL https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.sh | sh" />
-          <Copyable text="/plugin marketplace add berkcangumusisik/agent-hub" />
-          <Copyable text="/plugin install super-team@agent-hub" />
-          <Copyable text="/onboard" />
-        </div>
+        <InstallTabs />
       </Section>
 
       <CtaBand />

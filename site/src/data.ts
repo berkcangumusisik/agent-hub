@@ -28,4 +28,18 @@ export const roster: Role[] = [
 
 export const allSpecialists = roster.map((r) => r.name);
 
+export type Harness = { id: string; name: string; icon: string; file: string; arg: string };
+export const harnesses: Harness[] = [
+  { id: "claude", name: "Claude Code", icon: "🤖", file: "plugin + CLAUDE.md", arg: "claude" },
+  { id: "codex", name: "Codex", icon: "⌘", file: "AGENTS.md", arg: "codex" },
+  { id: "cursor", name: "Cursor", icon: "▟", file: ".cursor/rules", arg: "cursor" },
+  { id: "opencode", name: "OpenCode", icon: "◍", file: "AGENTS.md", arg: "opencode" },
+  { id: "gemini", name: "Gemini CLI", icon: "✦", file: "GEMINI.md", arg: "gemini" },
+  { id: "windsurf", name: "Windsurf", icon: "🏄", file: ".windsurfrules", arg: "windsurf" },
+];
+
+export const commands = ["onboard", "team", "review", "decide", "handoff"];
+
+export const INSTALL_BASE = "curl -fsSL https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.sh | sh";
+
 export const asset = (file: string) => `${import.meta.env.BASE_URL}${file}`;
