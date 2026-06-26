@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Project-aware multi-agent super team for Claude Code. One specialist team that adapts to every project via a per-project profile.",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "plugins": [
     {

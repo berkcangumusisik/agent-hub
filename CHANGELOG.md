@@ -6,9 +6,18 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-06-26
+
 ### Added
-- Marketing site in `site/` — Vite + React + TS + Tailwind, with an interactive profile
-  builder. Deployed to GitHub Pages via the `deploy-site` workflow.
+- **Multi-harness support** — the team now installs across Claude Code, Codex, Cursor,
+  OpenCode, Gemini, Windsurf, and anything that reads `AGENTS.md`, all generated from one
+  source in `adapters/`.
+- **One-line installers** — `install.sh` and `install.ps1` scaffold the profile and drop the
+  right adapter file(s) for your harness.
+- **Getting Started guide** (`docs/GETTING-STARTED.md`) and a **Turkish README**
+  (`docs/tr/README.md`); README repositioned as a system, not a single plugin.
+- Marketing site (`site/`, Vite + React + Tailwind) with an interactive profile builder,
+  bilingual (EN/TR), deployed to GitHub Pages.
 
 ## [0.3.0] — 2026-06-26
 
@@ -44,7 +53,8 @@ All notable changes to this project are documented here. The format is based on
 - Project profile template in `templates/project-profile/`.
 - Zero-dependency validation script and CI workflow.
 
-[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/berkcangumusisik/agent-hub/releases/tag/v0.1.0

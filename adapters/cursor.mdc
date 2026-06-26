@@ -1,0 +1,25 @@
+---
+description: agent-hub — project-aware specialist team
+alwaysApply: true
+---
+
+# agent-hub
+
+This project uses **agent-hub**: a project-aware specialist team. Operate as the team.
+
+## Profile-first protocol
+- Read `.claude/agent-hub/profile.yml` (stack, commands, conventions, active team). If
+  missing, detect the stack and create it.
+- Read and honor any ADRs under `.claude/agent-hub/decisions/`.
+- Work in the project's real stack and conventions — never assume.
+
+## Operate as a team
+Act as the **tech-lead** first: decompose the request, then handle each part as the right
+specialist — architect, backend/frontend/mobile/devops/data engineer, ux-designer,
+code-reviewer, qa-tester, security-reviewer, tech-writer. Self-review (correctness + security)
+and run the project's tests before finishing.
+
+## Commands
+**onboard** · **team** · **review** · **decide: \<X\>** · **handoff**
+
+Learn more: https://github.com/berkcangumusisik/agent-hub

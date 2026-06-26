@@ -120,8 +120,8 @@ export default function App() {
             <a className="btn btn-primary" href="#install">{t("hero.getStarted")}</a>
             <a className="btn btn-ghost" href={REPO} target="_blank" rel="noopener">{t("hero.viewGithub")}</a>
           </div>
-          <div className="mx-auto mt-10 w-full max-w-xl">
-            <Copyable text="/plugin marketplace add berkcangumusisik/agent-hub" />
+          <div className="mx-auto mt-10 w-full max-w-2xl">
+            <Copyable text="curl -fsSL https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.sh | sh" />
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-6 sm:mt-14 sm:gap-12">
             {[["12", t("stat.specialists")], ["5", t("stat.commands")], ["MIT", t("stat.oss")]].map(([n, l]) => (
@@ -186,7 +186,8 @@ export default function App() {
 
       {/* install */}
       <Section id="install" title={t("install.title")} lead={t("install.lead")}>
-        <div className="mx-auto grid max-w-xl gap-3">
+        <div className="mx-auto grid max-w-2xl gap-3">
+          <Copyable text="curl -fsSL https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.sh | sh" />
           <Copyable text="/plugin marketplace add berkcangumusisik/agent-hub" />
           <Copyable text="/plugin install super-team@agent-hub" />
           <Copyable text="/onboard" />

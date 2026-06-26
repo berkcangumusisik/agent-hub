@@ -1,21 +1,23 @@
 <div align="center">
 
+**Language:** English · [Türkçe](docs/tr/README.md)
+
 ![agent-hub](docs/banner.svg)
 
-**One AI engineering team. Every repo. Auto-specialized.**
+### The project-aware agent team for every harness.
 
-A project-aware multi-agent super-team for [Claude Code](https://claude.com/claude-code).
-Install once — then every project gets a full-stack team that adapts to *that* project's
-stack, commands, and conventions.
+**Not just configs — a system.** Install once and every project gets a 12-role specialist
+team that adapts to *that* project's stack, reviews your diffs, and remembers your decisions.
+Works across **Claude Code, Codex, Cursor, OpenCode, Gemini, Windsurf** and any tool that
+reads `AGENTS.md`.
 
 [![validate](https://github.com/berkcangumusisik/agent-hub/actions/workflows/validate.yml/badge.svg)](https://github.com/berkcangumusisik/agent-hub/actions/workflows/validate.yml)
 [![release](https://img.shields.io/github/v/release/berkcangumusisik/agent-hub?color=22d3ee&label=release)](https://github.com/berkcangumusisik/agent-hub/releases)
 [![stars](https://img.shields.io/github/stars/berkcangumusisik/agent-hub?style=flat&color=818cf8)](https://github.com/berkcangumusisik/agent-hub/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22d3ee.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-818cf8.svg)](https://code.claude.com/docs/en/plugins)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-c084fc.svg)](CONTRIBUTING.md)
+![harnesses](https://img.shields.io/badge/harnesses-6%2B-c084fc)
 
-**[🌐 Website](https://berkcangumusisik.github.io/agent-hub/)** · [Install](#-install) · [How it works](#-how-it-works) · [The roster](#-the-roster) · [Contribute](CONTRIBUTING.md)
+[🌐 Website](https://berkcangumusisik.github.io/agent-hub/) · [Quick start](#-quick-start) · [How it works](#-how-it-works) · [Harnesses](#-supported-harnesses) · [Guide](docs/GETTING-STARTED.md) · [Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -23,24 +25,60 @@ stack, commands, and conventions.
 
 ## ✨ The idea
 
-You don't want a different assistant per project. You want **one great team** that *knows*
-which project it's in.
+You don't want a different assistant per project, or a different setup per tool. You want
+**one great team** that knows which project it's in — and works in whatever harness you use.
 
-> Open Claude Code in a backend repo → the team thinks in your backend stack.
-> Open it in a web repo → the same team thinks in your frontend stack.
+> Open your backend repo → the team thinks in your backend stack.
+> Open your web repo → the same team thinks frontend.
 > Same roster. Different brain. **Zero manual switching.**
 
-The magic is a tiny per-project file the whole team reads before acting. Claude Code
-auto-loads it when you open the project — so specialization is automatic.
+Three things make it a *system*, not a pile of prompts:
 
-```text
-~/my-service  ❯ "add rate limiting to the login endpoint"
-   tech-lead reads .claude/agent-hub/profile.yml  → your stack · framework · pkg manager
-   ├─ architect    designs the guard + token-bucket store
-   ├─ backend-eng  implements it in your framework
-   ├─ security     checks auth bypass & lockout edge cases
-   └─ code-review  signs off
+- **🧠 Project-aware** — every agent reads a tiny per-project `profile.yml` before acting.
+- **📝 Memory** — decisions are recorded as ADRs the whole team reads and honors.
+- **⚡ Auto-load** — the profile loads the moment you open the project.
+
+## 🚀 Quick start
+
+**One line — any harness:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.sh | sh
 ```
+
+This scaffolds the project profile and installs the team for every supported harness. Want
+just one? Pass it: `… | sh -s -- cursor` (or `claude`, `codex`, `gemini`, `opencode`,
+`windsurf`).
+
+**Windows (PowerShell):**
+
+```powershell
+irm https://raw.githubusercontent.com/berkcangumusisik/agent-hub/main/install.ps1 | iex
+```
+
+**Claude Code (richest experience — real subagents):**
+
+```
+/plugin marketplace add berkcangumusisik/agent-hub
+/plugin install super-team@agent-hub
+```
+
+Then open your repo with your agent and say **“onboard”** — it detects your stack and fills
+the profile. From there, just describe what you want; the **tech-lead** routes the work.
+
+## 🧰 Supported harnesses
+
+| Harness | What gets installed |
+|---|---|
+| **Claude Code** | Plugin with 12 real subagents + `CLAUDE.md` |
+| **Codex** | `AGENTS.md` |
+| **Cursor** | `.cursor/rules/agent-hub.mdc` |
+| **OpenCode** | `AGENTS.md` |
+| **Gemini CLI** | `GEMINI.md` |
+| **Windsurf** | `.windsurfrules` |
+| **Anything else that reads `AGENTS.md`** | `AGENTS.md` |
+
+One source of truth in [`adapters/`](adapters/) generates each harness's file.
 
 ## 🎬 See it
 
@@ -48,92 +86,49 @@ auto-loads it when you open the project — so specialization is automatic.
 
 ![agent-hub demo](docs/demo.svg)
 
-*`/onboard` detects the stack, then `tech-lead` routes the work to the right specialists.*
-
 </div>
-
-## 🚀 Install
-
-```bash
-/plugin marketplace add berkcangumusisik/agent-hub
-/plugin install super-team@agent-hub
-```
-
-That's it — the team is now available in **every** project on your machine.
-
-## 🧭 Use it in a project
-
-From inside any project directory:
-
-```bash
-/onboard      # detects your stack, scaffolds the project profile
-```
-
-This writes `.claude/agent-hub/profile.yml` + `.claude/CLAUDE.md`. Review the detected
-values, fix anything wrong, and you're done. From then on, just describe what you want —
-**`tech-lead`** routes the work to the right specialists.
-
-```bash
-/team         # show the roster and who's active for this project
-/review       # full team review of your diff (correctness + security + tests + design)
-/decide       # record an architectural decision to the team's memory (ADR)
-/handoff      # summarize where we are for the next session
-```
-
-When you open Claude Code in a project that has a profile, a **SessionStart hook**
-auto-loads it — so the team is oriented to your stack before you type a word.
 
 ## 🧠 How it works
 
 ![architecture](docs/architecture.svg)
 
-Two layers:
-
-1. **The super-team** *(this repo, a Claude Code plugin)* — a roster of specialist
-   subagents. Installed once, present everywhere.
-2. **The project profile** *(per project)* — a `.claude/agent-hub/profile.yml` +
-   `CLAUDE.md` describing the project's stack, commands, and conventions.
-
-Every agent runs a **Profile-first protocol**: read the profile before doing anything, then
-act in *that* project's idioms. Because Claude Code auto-loads a project's `CLAUDE.md` when
-you open it there, switching projects switches the team's behavior — automatically.
+Two layers: a universal **team** (this repo) and a per-project **profile**. Every agent runs a
+*profile-first protocol* — read the profile and decisions, then act in that project's idioms.
+Read the full walkthrough in the **[Getting Started guide](docs/GETTING-STARTED.md)**.
 
 ## 👥 The roster
 
 | Agent | Role | Model |
 |---|---|---|
 | `tech-lead` | Orchestrator — decomposes work, routes to specialists | `opus` |
-| `architect` | System design, data models, API contracts, trade-offs | `opus` |
-| `backend-engineer` | APIs, business logic, persistence, integrations | `sonnet` |
+| `architect` | System design, data models, API contracts | `opus` |
+| `backend-engineer` | APIs, business logic, persistence | `sonnet` |
 | `frontend-engineer` | Web UI, state, accessibility, performance | `sonnet` |
 | `mobile-engineer` | Native / cross-platform mobile | `sonnet` |
-| `devops-engineer` | CI/CD, infra, containers, observability | `sonnet` |
-| `data-engineer` | Pipelines, ETL, schema/warehouse modeling, migrations | `sonnet` |
-| `ux-designer` | User flows, IA, interaction & accessibility specs | `opus` |
-| `code-reviewer` | Correctness, bugs, maintainability review | `sonnet` |
+| `devops-engineer` | CI/CD, infra, observability | `sonnet` |
+| `data-engineer` | Pipelines, ETL, schema, migrations | `sonnet` |
+| `ux-designer` | User flows, IA, accessibility | `opus` |
+| `code-reviewer` | Correctness, bugs, maintainability | `sonnet` |
 | `qa-tester` | Test plans and test code | `haiku` |
-| `security-reviewer` | Vulnerabilities, authz/authn, secrets (defensive) | `opus` |
+| `security-reviewer` | Vulnerabilities, authz/authn, secrets | `opus` |
 | `tech-writer` | Docs, READMEs, changelogs | `haiku` |
 
-Models are tuned per role for a quality/cost balance — override any of them in the agent's
-frontmatter.
+(On non-Claude harnesses the single agent wears these hats; on Claude Code they're real,
+parallel subagents.)
+
+## ⌨️ Commands
+
+`onboard` · `team` · `review` · `decide: <X>` · `handoff` — available as `/commands` in Claude
+Code, or as plain words in any harness reading `AGENTS.md`.
 
 ## 📄 The profile
 
-`.claude/agent-hub/profile.yml` is the single source of truth a project hands the team:
+`.claude/agent-hub/profile.yml` is the single source of truth the team reads first:
 
 ```yaml
-project:
-  name: my-service
-  type: backend
-stack:
-  language: TypeScript
-  framework: NestJS
-  database: PostgreSQL
-  packageManager: pnpm
-commands:
-  install: pnpm install
-  test: pnpm test
+project: { name: my-service, type: backend }
+stack: { language: TypeScript, framework: NestJS, database: PostgreSQL }
+commands: { install: pnpm install, test: pnpm test }
 team:
   active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer]
 conventions:
@@ -142,79 +137,30 @@ doNot:
   - Never expose entities directly in API responses
 ```
 
-A starter template lives in [`templates/project-profile/`](templates/project-profile/) —
-or just run `/onboard` and let the team fill it from your codebase.
+Starter profiles for common stacks live in [`templates/profiles/`](templates/profiles/).
 
 ## 🗂 Repo layout
 
 ```text
 agent-hub/
-├── .claude-plugin/marketplace.json     # marketplace manifest
-├── plugins/super-team/                 # the plugin
-│   ├── .claude-plugin/plugin.json
-│   ├── agents/                         # the 12 specialists
-│   ├── skills/                         # agent-hub-init, load-profile, handoff, decision-log
-│   ├── commands/                       # /onboard, /team, /review, /decide, /handoff
-│   └── hooks/                          # SessionStart: auto-load the project profile
-├── templates/project-profile/          # per-project .claude/ starter
-├── templates/profiles/                 # ready profiles (Spring, Django, Next, Flutter, Go, Expo)
-├── site/                               # marketing site (Vite + React + Tailwind)
+├── install.sh · install.ps1            # one-line installers
+├── adapters/                           # one source → AGENTS.md, CLAUDE.md, GEMINI.md, cursor, windsurf
+├── plugins/super-team/                 # Claude Code plugin (12 subagents, skills, hooks, commands)
+├── templates/                          # per-project profile + starter stacks
+├── docs/                               # guide, diagrams, website
+├── site/                               # marketing site (Vite + React)
 └── scripts/validate.mjs                # zero-dep CI validation
 ```
 
-## ❓ FAQ
+## 🤝 Contributing & community
 
-<details>
-<summary><b>Do I have to fill the profile by hand?</b></summary>
-
-No. `/onboard` inspects your repo (`package.json`, `pom.xml`, `pubspec.yaml`, CI config…)
-and fills the profile for you. You just confirm.
-</details>
-
-<details>
-<summary><b>How is this different from just using subagents?</b></summary>
-
-Plain subagents are global and stack-agnostic. agent-hub makes one team **project-aware**:
-the same roster reads each project's profile and adapts, so you don't maintain a separate
-set of agents per repo.
-</details>
-
-<details>
-<summary><b>Can I add or remove specialists?</b></summary>
-
-Yes — per project via `team.active` in the profile, or globally by editing the roster.
-See [CONTRIBUTING](CONTRIBUTING.md) to add a new specialist.
-</details>
-
-<details>
-<summary><b>Does it work with my stack?</b></summary>
-
-It's stack-agnostic — the agents derive everything from your profile. Node, Java, Python,
-Dart, Go… if Claude Code can read it, the team can work in it.
-</details>
-
-## 🛣 Roadmap
-
-- [x] `/handoff` command to summarize state for the next session
-- [x] `data-engineer` and `ux-designer` specialists
-- [x] Starter templates for popular stacks (Spring Boot, Django, Next, Flutter, Go, Expo)
-- [x] `/review` orchestrated multi-agent review
-- [x] Team memory — decision log (`/decide` + ADRs)
-- [x] SessionStart hook that auto-loads the project profile
-- [ ] Profile linting in `/onboard`
-- [ ] Per-package profiles for monorepos
-
-Have an idea? [Open an issue](https://github.com/berkcangumusisik/agent-hub/issues) or a PR.
-
-## 🤝 Contributing
-
-PRs of every size are welcome — a sharper agent prompt, a new specialist, an example
-profile. Run `node scripts/validate.mjs` before pushing. See [CONTRIBUTING.md](CONTRIBUTING.md).
+PRs welcome — a sharper agent prompt, a new harness adapter, a starter profile. See
+[CONTRIBUTING.md](CONTRIBUTING.md). Questions and show-and-tell go in
+[Discussions](https://github.com/berkcangumusisik/agent-hub/discussions).
 
 ## ⭐ Like it?
 
-If agent-hub saves you time, **star the repo** — it helps others find it and motivates the
-roadmap.
+If agent-hub saves you time, **star the repo** — it helps others find it.
 
 ## 📝 License
 
