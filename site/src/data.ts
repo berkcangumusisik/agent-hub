@@ -36,6 +36,9 @@ export const harnesses: Harness[] = [
   { id: "opencode", name: "OpenCode", code: "OC", file: "AGENTS.md", arg: "opencode" },
   { id: "gemini", name: "Gemini CLI", code: "Gm", file: "GEMINI.md", arg: "gemini" },
   { id: "windsurf", name: "Windsurf", code: "Ws", file: ".windsurfrules", arg: "windsurf" },
+  { id: "copilot", name: "GitHub Copilot", code: "Co", file: ".github/copilot-instructions.md", arg: "copilot" },
+  { id: "cline", name: "Cline / Roo", code: "Cl", file: ".clinerules", arg: "cline" },
+  { id: "zed", name: "Zed", code: "Zd", file: ".rules", arg: "zed" },
 ];
 
 export const commands = ["onboard", "team", "review", "decide", "handoff"];

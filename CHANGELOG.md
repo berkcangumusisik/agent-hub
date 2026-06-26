@@ -6,14 +6,23 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-06-26
+
 ### Changed
-- **Site & brand redesign** — refined dark/premium theme: single soft-indigo accent (no
-  rainbow gradients, orbs, or grain), clean 1px-border cards, monogram harness logos, white
-  primary buttons. Brand SVGs (banner, architecture, demo) recolored to match.
+- **Site rebuilt from scratch** — modern refined-dark design, a live HTML terminal "product
+  shot" in the hero, **real harness logos** (Simple Icons) replacing monograms, a "Works with"
+  logo strip, single soft-indigo accent, clean 1px-border cards, white primary buttons. Brand
+  SVGs (banner, architecture, demo) recolored to match.
+- **All 12 agent prompts upgraded** — explicit operating procedures, definition-of-done, and
+  anti-patterns for sharper, more consistent results.
 
 ### Added
 - Starter profiles for **Rails, .NET, Laravel, FastAPI, SvelteKit** (now 11 stacks).
 - `onboard` now detects Ruby/PHP/.NET projects.
+- **3 more harnesses** — GitHub Copilot (`.github/copilot-instructions.md`), Cline/Roo
+  (`.clinerules`), Zed (`.rules`); installers and site updated (now 9 harnesses).
+- `adapters/README.md` documenting every harness mapping.
+- Site: FAQ section; README: "Why agent-hub" comparison.
 
 ## [0.4.0] — 2026-06-26
 
@@ -62,7 +71,8 @@ All notable changes to this project are documented here. The format is based on
 - Project profile template in `templates/project-profile/`.
 - Zero-dependency validation script and CI workflow.
 
-[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.1.0...v0.2.0

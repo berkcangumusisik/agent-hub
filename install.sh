@@ -46,8 +46,15 @@ install_one() {
       dl "adapters/cursor.mdc" ".cursor/rules/agent-hub.mdc"; say "${c_grn}✓${c_0} .cursor/rules/agent-hub.mdc" ;;
     windsurf)
       dl "adapters/windsurfrules.md" ".windsurfrules"; say "${c_grn}✓${c_0} .windsurfrules" ;;
+    copilot)
+      mkdir -p .github
+      dl "adapters/copilot.md" ".github/copilot-instructions.md"; say "${c_grn}✓${c_0} .github/copilot-instructions.md" ;;
+    cline)
+      dl "adapters/clinerules.md" ".clinerules"; say "${c_grn}✓${c_0} .clinerules" ;;
+    zed)
+      dl "adapters/zed.md" ".rules"; say "${c_grn}✓${c_0} .rules" ;;
     *)
-      say "${c_b}unknown harness:${c_0} $1 (use: claude codex opencode cursor gemini windsurf all)"; exit 1 ;;
+      say "${c_b}unknown harness:${c_0} $1 (use: claude codex opencode cursor gemini windsurf copilot cline zed all)"; exit 1 ;;
   esac
 }
 
@@ -58,6 +65,10 @@ if [ "$HARNESS" = "all" ]; then
   mkdir -p .cursor/rules
   dl "adapters/cursor.mdc" ".cursor/rules/agent-hub.mdc"; say "${c_grn}✓${c_0} .cursor/rules/agent-hub.mdc (Cursor)"
   dl "adapters/windsurfrules.md" ".windsurfrules";        say "${c_grn}✓${c_0} .windsurfrules (Windsurf)"
+  mkdir -p .github
+  dl "adapters/copilot.md" ".github/copilot-instructions.md"; say "${c_grn}✓${c_0} .github/copilot-instructions.md (Copilot)"
+  dl "adapters/clinerules.md" ".clinerules";              say "${c_grn}✓${c_0} .clinerules (Cline / Roo)"
+  dl "adapters/zed.md" ".rules";                          say "${c_grn}✓${c_0} .rules (Zed)"
 else
   install_one "$HARNESS"
 fi

@@ -32,6 +32,9 @@ function Install-One($h) {
     "gemini"   { Dl "adapters/GEMINI.md" "GEMINI.md"; Write-Host "OK  GEMINI.md" -ForegroundColor Green }
     "cursor"   { Dl "adapters/cursor.mdc" ".cursor/rules/agent-hub.mdc"; Write-Host "OK  .cursor/rules/agent-hub.mdc" -ForegroundColor Green }
     "windsurf" { Dl "adapters/windsurfrules.md" ".windsurfrules"; Write-Host "OK  .windsurfrules" -ForegroundColor Green }
+    "copilot"  { Dl "adapters/copilot.md" ".github/copilot-instructions.md"; Write-Host "OK  .github/copilot-instructions.md" -ForegroundColor Green }
+    "cline"    { Dl "adapters/clinerules.md" ".clinerules"; Write-Host "OK  .clinerules" -ForegroundColor Green }
+    "zed"      { Dl "adapters/zed.md" ".rules"; Write-Host "OK  .rules" -ForegroundColor Green }
     default    { Write-Host "unknown harness: $h" -ForegroundColor Yellow; exit 1 }
   }
 }
@@ -42,6 +45,9 @@ if ($Harness -eq "all") {
   Dl "adapters/GEMINI.md" "GEMINI.md";        Write-Host "OK  GEMINI.md (Gemini CLI)" -ForegroundColor Green
   Dl "adapters/cursor.mdc" ".cursor/rules/agent-hub.mdc"; Write-Host "OK  .cursor/rules/agent-hub.mdc (Cursor)" -ForegroundColor Green
   Dl "adapters/windsurfrules.md" ".windsurfrules";        Write-Host "OK  .windsurfrules (Windsurf)" -ForegroundColor Green
+  Dl "adapters/copilot.md" ".github/copilot-instructions.md"; Write-Host "OK  .github/copilot-instructions.md (Copilot)" -ForegroundColor Green
+  Dl "adapters/clinerules.md" ".clinerules";              Write-Host "OK  .clinerules (Cline / Roo)" -ForegroundColor Green
+  Dl "adapters/zed.md" ".rules";                          Write-Host "OK  .rules (Zed)" -ForegroundColor Green
 } else {
   Install-One $Harness
 }

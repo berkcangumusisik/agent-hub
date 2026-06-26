@@ -8,14 +8,14 @@
 
 **Not just configs — a system.** Install once and every project gets a 12-role specialist
 team that adapts to *that* project's stack, reviews your diffs, and remembers your decisions.
-Works across **Claude Code, Codex, Cursor, OpenCode, Gemini, Windsurf** and any tool that
-reads `AGENTS.md`.
+Works across **Claude Code, Codex, Cursor, OpenCode, Gemini, Windsurf, GitHub Copilot, Cline,
+Zed** — and anything that reads `AGENTS.md`.
 
 [![validate](https://github.com/berkcangumusisik/agent-hub/actions/workflows/validate.yml/badge.svg)](https://github.com/berkcangumusisik/agent-hub/actions/workflows/validate.yml)
 [![release](https://img.shields.io/github/v/release/berkcangumusisik/agent-hub?color=22d3ee&label=release)](https://github.com/berkcangumusisik/agent-hub/releases)
 [![stars](https://img.shields.io/github/stars/berkcangumusisik/agent-hub?style=flat&color=818cf8)](https://github.com/berkcangumusisik/agent-hub/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22d3ee.svg)](LICENSE)
-![harnesses](https://img.shields.io/badge/harnesses-6%2B-c084fc)
+![harnesses](https://img.shields.io/badge/harnesses-9%2B-a78bfa)
 
 [🌐 Website](https://berkcangumusisik.github.io/agent-hub/) · [Quick start](#-quick-start) · [How it works](#-how-it-works) · [Harnesses](#-supported-harnesses) · [Guide](docs/GETTING-STARTED.md) · [Contribute](CONTRIBUTING.md)
 
@@ -37,6 +37,17 @@ Three things make it a *system*, not a pile of prompts:
 - **🧠 Project-aware** — every agent reads a tiny per-project `profile.yml` before acting.
 - **📝 Memory** — decisions are recorded as ADRs the whole team reads and honors.
 - **⚡ Auto-load** — the profile loads the moment you open the project.
+
+## 🆚 Why agent-hub
+
+| | A pile of agent prompts | **agent-hub** |
+|---|---|---|
+| Per-project fit | You re-explain the stack every time | Reads a `profile.yml` automatically |
+| Memory | Forgets decisions between sessions | Records & honors ADRs |
+| Consistency | Different setup per repo & per tool | One team, every repo, every harness |
+| Orchestration | You route the work | `tech-lead` decomposes & delegates |
+| Quality gate | Ad-hoc | Built-in `code-reviewer` + `security-reviewer` |
+| Portability | Locked to one tool | Claude Code, Codex, Cursor, Gemini, Copilot… |
 
 ## 🚀 Quick start
 
@@ -76,6 +87,9 @@ the profile. From there, just describe what you want; the **tech-lead** routes t
 | **OpenCode** | `AGENTS.md` |
 | **Gemini CLI** | `GEMINI.md` |
 | **Windsurf** | `.windsurfrules` |
+| **GitHub Copilot** | `.github/copilot-instructions.md` |
+| **Cline / Roo** | `.clinerules` |
+| **Zed** | `.rules` |
 | **Anything else that reads `AGENTS.md`** | `AGENTS.md` |
 
 One source of truth in [`adapters/`](adapters/) generates each harness's file.

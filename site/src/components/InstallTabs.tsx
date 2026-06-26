@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { harnesses, INSTALL_BASE } from "../data";
+import { harnesses, INSTALL_BASE, asset } from "../data";
 import { useI18n } from "../i18n";
 
 const tabs = [{ id: "all", name: "All", arg: "", code: "✸" }, ...harnesses];
@@ -30,9 +30,10 @@ export default function InstallTabs() {
           <button
             key={x.id}
             onClick={() => setSel(x.id)}
-            className={`rounded-full border px-3.5 py-1.5 text-sm transition ${sel === x.id ? "border-violet bg-violet/10 text-txt" : "border-edge text-mut hover:border-violet/60 hover:text-txt"}`}
+            className={`flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm transition ${sel === x.id ? "border-violet bg-violet/10 text-txt" : "border-edge text-mut hover:border-violet/60 hover:text-txt"}`}
           >
-            <span className="mr-1.5 font-mono text-xs text-acc">{x.code}</span>{x.name}
+            {x.id === "all" ? <span className="font-mono text-xs text-acc">✸</span> : <img src={asset(`logos/${x.id}.svg`)} alt="" className="h-3.5 w-3.5" />}
+            {x.name}
           </button>
         ))}
       </div>

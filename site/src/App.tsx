@@ -4,8 +4,10 @@ import { useI18n, type Lang } from "./i18n";
 import { useReveal } from "./useReveal";
 import ProfileGenerator from "./components/ProfileGenerator";
 import InstallTabs from "./components/InstallTabs";
+import Terminal from "./components/Terminal";
 
 const WRAP = "mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16";
+const logo = (id: string) => asset(`logos/${id}.svg`);
 
 function Copyable({ text }: { text: string }) {
   const { t } = useI18n();
@@ -16,12 +18,7 @@ function Copyable({ text }: { text: string }) {
         <span className="text-grn">$</span> {text}
       </code>
       <button
-        onClick={() => {
-          navigator.clipboard.writeText(text).then(() => {
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1500);
-          });
-        }}
+        onClick={() => navigator.clipboard.writeText(text).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1500); })}
         className="ml-auto shrink-0 rounded-lg border border-edge px-2.5 py-1 text-xs text-mut transition hover:border-violet hover:text-txt"
       >
         {copied ? t("copied") : t("copy")}
@@ -52,28 +49,6 @@ function LangSwitch() {
     </button>
   );
   return <div className="flex items-center gap-0.5 rounded-lg border border-edge p-0.5">{opt("en")}{opt("tr")}</div>;
-}
-
-function CtaBand() {
-  const { t } = useI18n();
-  const { ref, inView } = useReveal<HTMLElement>();
-  return (
-    <section ref={ref} className={`reveal ${inView ? "in" : ""} border-t border-white/5 py-16 sm:py-24`}>
-      <div className={WRAP}>
-        <div className="gcard relative overflow-hidden p-8 text-center sm:p-16">
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(40rem 18rem at 50% -4rem, rgba(138,180,255,0.08), transparent 70%)" }} />
-          <div className="relative">
-            <h2 className="text-2xl font-extrabold tracking-tight sm:text-5xl">{t("cta.title")}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-mut sm:text-lg">{t("cta.lead")}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a className="btn btn-primary" href={REPO} target="_blank" rel="noopener">{t("cta.button")}</a>
-              <a className="btn btn-ghost" href="#install">{t("nav.install")}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
 }
 
 export default function App() {
@@ -116,7 +91,18 @@ export default function App() {
           <div className="mx-auto mt-10 w-full max-w-2xl">
             <Copyable text={INSTALL_BASE} />
           </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-6 sm:mt-14 sm:gap-12">
+
+          <Terminal />
+
+          {/* works-with logo strip */}
+          <p className="mt-14 text-xs font-medium uppercase tracking-[0.2em] text-mut">{t("hero.worksWith")}</p>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
+            {harnesses.map((h) => (
+              <img key={h.id} src={logo(h.id)} alt={h.name} title={h.name} className="h-6 w-auto opacity-60 transition hover:opacity-100" loading="lazy" />
+            ))}
+          </div>
+
+          <div className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-6 sm:gap-12">
             {[["12", t("stat.specialists")], [String(harnesses.length), t("kicker.harness")], ["MIT", t("stat.oss")]].map(([n, l]) => (
               <div key={l} className="text-center">
                 <div className="gradient-text font-display text-3xl font-bold sm:text-4xl">{n}</div>
@@ -132,20 +118,15 @@ export default function App() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {harnesses.map((h) => (
             <div key={h.id} className="gcard flex items-center gap-4 p-5">
-              <span className="mono-chip shrink-0">{h.code}</span>
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-edge bg-ink2">
+                <img src={logo(h.id)} alt={h.name} className="h-5 w-5" loading="lazy" />
+              </span>
               <span className="min-w-0">
                 <b className="block text-base">{h.name}</b>
                 <span className="text-sm text-mut">{t("harness.installs")} <code className="font-mono text-txt">{h.file}</code></span>
               </span>
             </div>
           ))}
-        </div>
-      </Section>
-
-      {/* see it */}
-      <Section id="see" eyebrow={t("kicker.see")} title={t("see.title")} lead={t("see.lead")}>
-        <div className="gcard mx-auto max-w-5xl p-2">
-          <img className="w-full rounded-xl" src={asset("demo.svg")} alt="Terminal demo of /onboard and tech-lead routing" loading="lazy" />
         </div>
       </Section>
 
@@ -186,7 +167,7 @@ export default function App() {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {roster.map((r) => (
             <div key={r.name} className="group flex items-center gap-3 rounded-xl border border-edge bg-card/50 px-4 py-4 transition hover:-translate-y-0.5 hover:border-violet/60 hover:bg-card">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-lg" style={{ background: "linear-gradient(135deg, rgba(34,211,238,.12), rgba(192,132,252,.12))" }}>{r.e}</span>
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-lg" style={{ background: "linear-gradient(135deg, rgba(138,180,255,.12), rgba(167,139,250,.12))" }}>{r.e}</span>
               <span className="min-w-0">
                 <b className="text-sm">
                   {r.name}
@@ -209,6 +190,19 @@ export default function App() {
         <InstallTabs />
       </Section>
 
+      {/* faq */}
+      <Section id="faq" eyebrow={t("kicker.faq")} title={t("faq.title")}>
+        <div className="mx-auto grid max-w-3xl gap-3">
+          {["1", "2", "3", "4"].map((n) => (
+            <div key={n} className="gcard p-5">
+              <p className="font-semibold">{t(`faq.q${n}`)}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-mut">{t(`faq.a${n}`)}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* cta */}
       <CtaBand />
 
       {/* footer */}
@@ -219,5 +213,27 @@ export default function App() {
         · <a className="hover:text-txt" href={REPO} target="_blank" rel="noopener">GitHub</a>
       </footer>
     </>
+  );
+}
+
+function CtaBand() {
+  const { t } = useI18n();
+  const { ref, inView } = useReveal<HTMLElement>();
+  return (
+    <section ref={ref} className={`reveal ${inView ? "in" : ""} border-t border-white/5 py-16 sm:py-24`}>
+      <div className={WRAP}>
+        <div className="gcard relative overflow-hidden p-8 text-center sm:p-16">
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(40rem 18rem at 50% -4rem, rgba(138,180,255,0.08), transparent 70%)" }} />
+          <div className="relative">
+            <h2 className="text-2xl font-extrabold tracking-tight sm:text-5xl">{t("cta.title")}</h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-mut sm:text-lg">{t("cta.lead")}</p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a className="btn btn-primary" href={REPO} target="_blank" rel="noopener">{t("cta.button")}</a>
+              <a className="btn btn-ghost" href="#install">{t("nav.install")}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
