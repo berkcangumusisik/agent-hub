@@ -1,0 +1,26 @@
+# Starter profile: Django (Python) backend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-api
+  type: backend
+  description: ""
+stack:
+  language: Python
+  runtime: Python 3.12
+  framework: Django
+  database: PostgreSQL
+  packageManager: poetry
+commands:
+  install: poetry install
+  dev: poetry run python manage.py runserver
+  test: poetry run pytest
+  lint: poetry run ruff check .
+  build: poetry run python manage.py collectstatic --noinput
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Keep business logic in services/managers, thin views
+  - Use migrations for every schema change
+doNot:
+  - Never commit SECRET_KEY or .env
+  - Never run raw SQL where the ORM suffices

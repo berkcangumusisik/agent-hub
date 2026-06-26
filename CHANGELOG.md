@@ -6,6 +6,24 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+### Added
+- Marketing site in `site/` — Vite + React + TS + Tailwind, with an interactive profile
+  builder. Deployed to GitHub Pages via the `deploy-site` workflow.
+
+## [0.3.0] — 2026-06-26
+
+### Added
+- **SessionStart hook** that auto-loads the project profile into context, so the team
+  specializes the moment you open Claude Code in a project.
+- **`/review`** — orchestrated multi-agent code review (code-reviewer, security-reviewer,
+  qa-tester, architect run in parallel and merge into one severity-grouped report).
+- **Team memory** — `decision-log` skill and `/decide` command record ADRs under
+  `.claude/agent-hub/decisions/`; agents read and honor them across sessions.
+- **Starter profiles** for Spring Boot, Django, Next.js, Flutter, Go, and Expo in
+  `templates/profiles/`.
+- Smarter `/onboard`: deeper stack detection (Go, Rust, Expo, Django) and monorepo awareness.
+- `validate.mjs` now checks `hooks/hooks.json` and that hook commands point to real files.
+
 ## [0.2.0] — 2026-06-22
 
 ### Added
@@ -26,6 +44,7 @@ All notable changes to this project are documented here. The format is based on
 - Project profile template in `templates/project-profile/`.
 - Zero-dependency validation script and CI workflow.
 
-[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/berkcangumusisik/agent-hub/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/berkcangumusisik/agent-hub/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/berkcangumusisik/agent-hub/releases/tag/v0.1.0

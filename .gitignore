@@ -1,6 +1,9 @@
 # Claude Code local settings (machine-specific, not for the repo)
 .claude/settings.local.json
 
+# Local launch / promo material — not for publishing
+.promo/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db

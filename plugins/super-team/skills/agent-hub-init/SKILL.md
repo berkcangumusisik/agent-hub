@@ -12,10 +12,19 @@ Create a project profile so the super-team specializes to this codebase.
 1. **Detect the stack.** Inspect the repo to infer language, framework, package manager, database, and the real commands. Look at, as relevant:
    - `package.json` (scripts, deps) → Node/TS, framework, npm/pnpm/yarn
    - `pom.xml` / `build.gradle` → Java, Maven/Gradle, Spring
-   - `pyproject.toml` / `requirements.txt` → Python
-   - `pubspec.yaml` → Flutter/Dart
+   - `pyproject.toml` / `requirements.txt` → Python (Django/FastAPI/Flask)
+   - `pubspec.yaml` → Flutter/Dart; `app.json`/`expo` → React Native (Expo)
+   - `go.mod` → Go; `Cargo.toml` → Rust
    - `Dockerfile`, `.github/workflows/`, CI config → devops target
    - existing `README.md` for run/test/build commands
+
+   If a matching **starter template** exists in this plugin (`templates/profiles/`), use it as
+   the baseline and adjust to what you actually find — faster and more accurate than from scratch.
+
+1b. **Detect monorepos.** If you see workspaces (`pnpm-workspace.yaml`, `package.json`
+   `workspaces`, multiple `apps/*` or `packages/*`, a Gradle multi-module build), say so. Either
+   write one profile that names the sub-projects and their stacks, or recommend a profile per
+   workspace package. Don't flatten a monorepo into a single wrong stack.
 
 2. **Pick the active team.** Choose from the profile's stack:
    - backend project → `tech-lead, architect, backend-engineer, code-reviewer, qa-tester, security-reviewer`

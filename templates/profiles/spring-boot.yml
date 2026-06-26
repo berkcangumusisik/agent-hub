@@ -1,0 +1,26 @@
+# Starter profile: Spring Boot (Java) backend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-api
+  type: backend
+  description: ""
+stack:
+  language: Java
+  runtime: JDK 21
+  framework: Spring Boot
+  database: PostgreSQL
+  packageManager: maven
+commands:
+  install: ./mvnw install
+  dev: ./mvnw spring-boot:run
+  test: ./mvnw test
+  lint: ./mvnw checkstyle:check
+  build: ./mvnw package
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Layer as controller → service → repository
+  - Use DTOs for API I/O; never expose JPA entities directly
+doNot:
+  - Never put business logic in controllers
+  - Never log secrets or PII

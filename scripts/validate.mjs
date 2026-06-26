@@ -87,6 +87,25 @@ function validatePluginDir(base) {
     if (!fm?.description) fail(`${rel}: missing 'description' in frontmatter`);
   }
 
+  // hooks
+  const hooksFile = join(base, "hooks", "hooks.json");
+  if (existsSync(join(root, hooksFile))) {
+    const hj = readJSON(hooksFile);
+    if (hj && !hj.hooks) fail(`${hooksFile}: missing top-level 'hooks' object`);
+    else if (hj) {
+      for (const ev of Object.keys(hj.hooks)) {
+        for (const entry of hj.hooks[ev]) {
+          for (const h of entry.hooks ?? []) {
+            const m = (h.command ?? "").match(/\$\{CLAUDE_PLUGIN_ROOT\}\/(\S+?)"/);
+            if (m && !existsSync(join(root, base, m[1])))
+              fail(`${hooksFile}: hook command points to missing file ${m[1]}`);
+          }
+        }
+      }
+      pass(`hooks.json valid (${Object.keys(hj.hooks).join(", ")})`);
+    }
+  }
+
   // skills
   const skillsDir = join(root, base, "skills");
   if (existsSync(skillsDir)) {

@@ -15,7 +15,7 @@ stack, commands, and conventions.
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-818cf8.svg)](https://code.claude.com/docs/en/plugins)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-c084fc.svg)](CONTRIBUTING.md)
 
-[Install](#-install) · [How it works](#-how-it-works) · [The roster](#-the-roster) · [Contribute](CONTRIBUTING.md)
+**[🌐 Website](https://berkcangumusisik.github.io/agent-hub/)** · [Install](#-install) · [How it works](#-how-it-works) · [The roster](#-the-roster) · [Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -75,8 +75,13 @@ values, fix anything wrong, and you're done. From then on, just describe what yo
 
 ```bash
 /team         # show the roster and who's active for this project
+/review       # full team review of your diff (correctness + security + tests + design)
+/decide       # record an architectural decision to the team's memory (ADR)
 /handoff      # summarize where we are for the next session
 ```
+
+When you open Claude Code in a project that has a profile, a **SessionStart hook**
+auto-loads it — so the team is oriented to your stack before you type a word.
 
 ## 🧠 How it works
 
@@ -148,9 +153,12 @@ agent-hub/
 ├── plugins/super-team/                 # the plugin
 │   ├── .claude-plugin/plugin.json
 │   ├── agents/                         # the 12 specialists
-│   ├── skills/                         # agent-hub-init, load-profile, handoff
-│   └── commands/                       # /onboard, /team, /handoff
+│   ├── skills/                         # agent-hub-init, load-profile, handoff, decision-log
+│   ├── commands/                       # /onboard, /team, /review, /decide, /handoff
+│   └── hooks/                          # SessionStart: auto-load the project profile
 ├── templates/project-profile/          # per-project .claude/ starter
+├── templates/profiles/                 # ready profiles (Spring, Django, Next, Flutter, Go, Expo)
+├── site/                               # marketing site (Vite + React + Tailwind)
 └── scripts/validate.mjs                # zero-dep CI validation
 ```
 
@@ -189,8 +197,12 @@ Dart, Go… if Claude Code can read it, the team can work in it.
 
 - [x] `/handoff` command to summarize state for the next session
 - [x] `data-engineer` and `ux-designer` specialists
-- [ ] Starter templates for more stacks (Spring Boot, Django, Go, Expo)
+- [x] Starter templates for popular stacks (Spring Boot, Django, Next, Flutter, Go, Expo)
+- [x] `/review` orchestrated multi-agent review
+- [x] Team memory — decision log (`/decide` + ADRs)
+- [x] SessionStart hook that auto-loads the project profile
 - [ ] Profile linting in `/onboard`
+- [ ] Per-package profiles for monorepos
 
 Have an idea? [Open an issue](https://github.com/berkcangumusisik/agent-hub/issues) or a PR.
 

@@ -1,0 +1,26 @@
+# Starter profile: Next.js (App Router) web frontend.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: web-app
+  type: frontend
+  description: ""
+stack:
+  language: TypeScript
+  runtime: Node 20
+  framework: Next.js (App Router)
+  database: ""
+  packageManager: pnpm
+commands:
+  install: pnpm install
+  dev: pnpm dev
+  test: pnpm test
+  lint: pnpm lint
+  build: pnpm build
+team:
+  active: [tech-lead, architect, frontend-engineer, ux-designer, code-reviewer, qa-tester]
+conventions:
+  - Server Components by default; "use client" only when needed
+  - Reuse design-system components and tokens
+doNot:
+  - Never fetch secrets into client components
+  - Never ship unlabeled interactive elements

@@ -1,0 +1,26 @@
+# Starter profile: Expo / React Native mobile app.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: mobile-app
+  type: mobile
+  description: ""
+stack:
+  language: TypeScript
+  runtime: Node 20 + Expo SDK
+  framework: React Native (Expo)
+  database: ""
+  packageManager: pnpm
+commands:
+  install: pnpm install
+  dev: pnpm expo start
+  test: pnpm test
+  lint: pnpm lint
+  build: pnpm expo prebuild
+team:
+  active: [tech-lead, architect, mobile-engineer, ux-designer, code-reviewer, qa-tester]
+conventions:
+  - Reuse components and a shared theme
+  - Handle offline and permission states explicitly
+doNot:
+  - Never block the JS thread with heavy work
+  - Never hardcode API base URLs (use env/config)

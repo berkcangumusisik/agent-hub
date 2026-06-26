@@ -1,0 +1,26 @@
+# Starter profile: Flutter (Dart) cross-platform mobile.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: mobile-app
+  type: mobile
+  description: ""
+stack:
+  language: Dart
+  runtime: Flutter 3.x
+  framework: Flutter
+  database: Hive (local) + REST backend
+  packageManager: pub
+commands:
+  install: flutter pub get
+  dev: flutter run
+  test: flutter test
+  lint: flutter analyze
+  build: flutter build apk
+team:
+  active: [tech-lead, architect, mobile-engineer, ux-designer, code-reviewer, qa-tester]
+conventions:
+  - Separate UI, state, and data layers
+  - Handle offline and slow-network states explicitly
+doNot:
+  - Never block the UI thread with heavy work
+  - Never hardcode API base URLs

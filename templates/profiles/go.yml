@@ -1,0 +1,26 @@
+# Starter profile: Go backend service.
+# Copy to <your-project>/.claude/agent-hub/profile.yml and adjust.
+project:
+  name: my-service
+  type: backend
+  description: ""
+stack:
+  language: Go
+  runtime: Go 1.22
+  framework: net/http (stdlib) or chi/gin
+  database: PostgreSQL
+  packageManager: go modules
+commands:
+  install: go mod download
+  dev: go run ./cmd/server
+  test: go test ./...
+  lint: golangci-lint run
+  build: go build ./...
+team:
+  active: [tech-lead, architect, backend-engineer, code-reviewer, security-reviewer, qa-tester]
+conventions:
+  - Return explicit errors; wrap with context
+  - Keep packages small and cohesive
+doNot:
+  - Never panic for expected error paths
+  - Never ignore returned errors
